@@ -1,0 +1,65 @@
+{% extends 'blog/base.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %} 
+<div class="contenedor-wiki row">
+    <div class="secciones-wiki col-xs-12 col-sm-3 ">
+        <p><a href="{% url 'wiki' %}">Bienvenida</a></p>
+        <p><a href="{% url 'mecanicas' %}">Guia de mecanicas</a></p>
+        <p><a href="">Tutoriales</a></p>
+    </div>
+    <div class="contenido-wiki col-xs-12 col-sm-9">
+        <h2 class="titulo-seccion">Mecanicas</h2>  
+        <p class="cont-seccion">Se cambian un montón de mecánicas estándar de Minecraft para hacer que el juego sea un poco más interesante.</p> 
+        <h2 class="titulo-seccion">Cargar el Arco <img src="{% static 'img/bows-survivalplus.png' %}" alt=""></h2>  
+        <p class="cont-seccion">Necesitarás tener flechas en tu mano izquierda para disparar un arco y cargar una ballesta.</p> 
+        <h2 class="titulo-seccion">Peso de armadura</h2>  
+        <p class="cont-seccion">
+            <img src="{% static 'img/Armaduras-ligeras.png' %}" alt="">
+            <h3 class="subseccion">Armaduras Ligeras</h3>
+            <ul class="list">
+                <li>Material: cuero (cuero reforzado)</li>
+                <li>La velocidad de movimiento es normal</li>
+            </ul>
+            <img src="{% static 'img/armaduras-pesadas.png' %}" alt="">
+            <h3 class="subseccion">Armaduras Pesadas</h3>
+            <ul class="list">
+                <li><b>Material:</b> metalico (Hierro y Diamante)</li>
+                <li>Tiene supresión de velocidad de movimiento menor cuando se usa
+                    <ul class="alist">
+                        <li>Casco / Botas: <b>-2% de velocidad de movimiento</b></li>
+                        <li>Peto / Leotardos: <b>-3% de velocidad de movimiento</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </p> 
+        <h2 class="titulo-seccion">Asientos</h2>  
+        <p class="cont-seccion">
+            <p>Oh, ¿quieres sentarte? Genial, lo tenemos. Cree sillas con estos 2 componentes:</p>
+            <h4 class="subseccion">Base de la silla <img src="{% static 'img/silla-base.png' %}" alt=""></h3>
+            <p>Agregue una base para la silla con un bloque de escalera, la longitud máxima de la silla es de 2.</p>
+            <h4 class="subseccion">Costado de la silla <img src="{% static 'img/costado-sillas.png' %}" alt=""></h3>
+            <p>Agregue 2 lados con letreros, trampillas, pinturas o marcos de artículos.</p>
+            <br>
+            <p>Y ... Voila, tienes una silla.</p>   
+            <p>Haga clic derecho en la silla cuando esté cerca para sentarse.</p>  
+            <p>Agacharse para bajarse de la silla.</p>    
+        </p> 
+        <h2 class="titulo-seccion">Capas y bloques de nieve</h2>  
+        <p class="cont-seccion">
+            <p>Las recetas de <b>bloque de nieve</b> y <b>Capas de nieve</b> están desactivadas.</p>
+            <br>
+            <p>¡No te preocupes, hay alternativas!</p>
+            <p>La bola de nieve crea parches de capa de nieve cuando se tira al suelo.</p> 
+            <p>Una capa de nieve completamente apilada se convertirá en un bloque de nieve.</p> 
+            <br>
+            <p>Un truco fácil es usar bolas de nieve para apilar paredes contra arqueros.</p>
+            <br>
+            <p>Los golem de nieve se pueden hacer primero apilando 2 bloques de nieve y colocando una calabaza sobre él.</p>
+            <p>Romper la capa de nieve dará 1 (+ número de capas adicionales) bola(s) de nieve.</p>
+            <p>Romper el bloque de nieve dará 8 bolas de nieve.</p>
+        </p> 
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% load humanize %}
+{% block content %} 
+    <section class="cont-contenido row center-xs">
+        <div class="lside col-xs-12 col-sm-2">
+            <div>
+                <p>TOP DONADORES</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error doloribus officiis dolor aut ad et odit temporibus assumenda excepturi omnis culpa doloremque corporis voluptate, neque quia tenetur accusamus voluptatem! Ducimus!</p>
+            </div>
+        </div>
+        <div class="contenido col-xs-12 col-sm-8">
+            {% if user.is_superuser %}
+            <a href="{% url 'post_new' %}" class="top-menu"><i class="fas fa-plus"></i> Crear un nuevo post</a>
+            {% endif %}
+                {% for post in posts %}
+                <article >
+                    <div class="post ">
+                        <img class="perfil-img" src="{{ post.autor.profile.imagen.url }}" alt="">
+                        <div>
+                            <h2 class="username"><a href="{% url 'perfil' post.autor.username %}">@{{ post.autor.username }}</a></h2>
+                            <time class="fecha_publicado" data-time="#">{{ post.fecha_publicacion|naturaltime }}</time>                            
+                            {% if post.autor == request.user %}
+                            <a href="{% url 'post_edit' post.id %}" class="top-menu"><i class="fas fa-edit"></i> Editar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="texto">{{ post.texto|linebreaksbr }}</div>
+                        <img class="img-post" src="{{ post.imagen.url }}" alt="">
+                    </div>
+
+
+                </article>
+                {% endfor %}
+        </div>
+        <div class="rside col-xs-12 col-sm-2 first-xs last-sm">
+            <p>ESTADO DEL SERVIDOR</p>
+            <div class="card"> 
+
+                <div class="header">
+                    <div class="image"> 
+                        <img src="https://www.minecrafteo.com/wp-content/uploads/2020/06/minecraft-1-16.jpg" alt="" />
+                    </div>
+                    <h2 class="ip-status">play.netocraft.xyz</h2>
+                </div>
+                <div id="rest">Cargando...</div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>

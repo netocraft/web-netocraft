@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load humanize %}
+{% block content %}
+<div class="main">
+    <article >
+        <div class="post ">
+            <img class="perfil-img" src="{{ post.autor.profile.imagen.url }}" alt="">
+            <div>
+                <h2 class="username"><a href="{% url 'perfil' post.autor.username %}">@{{ post.autor.username }}</a></h2>
+                <time class="fecha_publicado" data-time="#">{{ post.fecha_publicacion|naturaltime }}</time>                            
+                {% if post.autor == request.user %}
+                <a href="{% url 'post_edit' post.id %}" class="top-menu"><i class="fas fa-edit"></i> Editar</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row center-xs">
+            <div class="texto col-xs-8">{{ post.texto|linebreaksbr }}</div>
+            <img class="img-post col-xs-8" src="{{ post.imagen.url }}" alt="">
+        </div>
+    </article>
+</div>
+{% endblock %}

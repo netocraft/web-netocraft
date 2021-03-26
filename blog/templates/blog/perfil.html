@@ -1,0 +1,37 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+
+<!-- Profile -->
+<div class="profile">
+	<img src="{{ user.profile.imagen.url }}">
+	<h2>@{{ user.username }}</h2>
+
+	{% if request.user.is_authenticated %}
+		{% if user.username != request.user.username %}
+			{% if user not in request.user.profile.siguiendo %}
+			<button><a class="follow-button" href="{% url 'seguir' user %}">Seguir</a></button>
+			{% else %}
+			<button><a class="follow-button" href="{% url 'dejarseguir' user %}">Dejar de Seguir</a></button>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+	
+	
+</div>
+<div class="follow row center-xs">
+	<div class="col-xs-12 col-sm-3 ">
+		<h5>Publicaciones</h5>
+		<p>{{ user.posts.count }}</p>
+	</div>
+	<div class="col-xs-12 col-sm-3 ">
+		<h5>Seguidores</h5>
+		<p>{{ user.profile.seguidores.count }}</p>
+
+	</div>
+	<div class="col-xs-12 col-sm-3 ">	
+		<h5>Siguiendo</h5>
+		<p>{{ user.profile.siguiendo.count }}</p>
+	</div>
+</div>
+{{ block.super }}
+{% endblock %}

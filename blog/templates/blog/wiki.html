@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load humanize %}
+{% block content %} 
+<div class="contenedor-wiki row">
+    <div class="secciones-wiki col-sm-3">
+        <p><a href="{% url 'wiki' %}">Bienvenida</a></p>
+        <p><a href="{% url 'mecanicas' %}">Guia de mecanicas</a></p>
+        <p><a href="">Tutoriales</a></p>
+    </div>
+    <div class="contenido-wiki col-sm-9">
+        <h1>Bienvenido a la wiki</h1>   
+        <p>Bienvenido a la wiki de NetoCraft</p>
+    </div>
+</div>
+{% endblock %}
